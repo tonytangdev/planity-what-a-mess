@@ -1,0 +1,28 @@
+{
+  "name": "planity-what-a-mess",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "watch-test": "jest --watch",
+    "build": "tsc",
+    "start": "npm run build && node ./out/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tonytangdev/planity-what-a-mess.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tonytangdev/planity-what-a-mess/issues"
+  },
+  "homepage": "https://github.com/tonytangdev/planity-what-a-mess#readme",
+  "devDependencies": {
+    "@types/jest": "^26.0.23",
+    "jest": "^26.6.3",
+    "ts-jest": "^26.5.5",
+    "typescript": "^4.2.4"
+  }
+}
