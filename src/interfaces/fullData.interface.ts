@@ -1,4 +1,4 @@
-export interface userInfo {
+export interface fullData {
     name: string,
     job: string,
     city: string,
