@@ -1,3 +1,5 @@
 export interface jobData {
-    job: string
+    job: string,
+    age?: number,
+    name?: string
 }

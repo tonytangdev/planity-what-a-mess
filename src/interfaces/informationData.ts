@@ -1,4 +1,4 @@
 export interface informationData {
-    city: string,
-    age: number
+    city?: string,
+    age?: number
 }
