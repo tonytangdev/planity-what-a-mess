@@ -1,4 +1,5 @@
 import fetch from 'node-fetch'
+import { mergeWith, merge } from 'lodash'
 import { informationData } from './interfaces/informationData'
 import { jobData } from './interfaces/jobData.interface'
 import { response } from './interfaces/response.interface'
@@ -30,23 +31,26 @@ const getUsersData = async (): Promise<response<userData>> => {
     return json
 }
 
+
 const start = async () => {
 
     const infoData = await getInformationData()
-    console.log(infoData)
 
     const jobsData = await getJobsData()
-    console.log(jobsData)
 
     const usersData = await getUsersData()
-    console.log(usersData)
 
-    // Merge data
-    // each field has a prefix to know where it is from
+    // Sanitize infoData
 
-    // filter fields to select the correct ones (sanitize + sort)
+    // Sanitize jobsData
 
-    // output is done
+    // Sanitize usersData
+
+    // Merge usersData with jobsData
+
+    // Merge previous mergedData with infoData
+
+    // save output in file
 
 }
 
