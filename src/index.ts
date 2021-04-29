@@ -4,11 +4,12 @@
 
 
 import fetch from 'node-fetch'
-import { mergeWith, merge } from 'lodash'
+import { merge } from 'lodash'
 import { informationData } from './interfaces/informationData'
 import { jobData } from './interfaces/jobData.interface'
 import { response } from './interfaces/response.interface'
 import { userData } from './interfaces/userData.interface'
+import { sanitizeData } from './helpers/sanitizeData'
 
 const INFO_URL = "https://recrutement-practice-default-rtdb.firebaseio.com/informations.json"
 
@@ -40,20 +41,27 @@ const getUsersData = async (): Promise<response<userData>> => {
 const start = async () => {
 
     const infoData = await getInformationData()
-
+    
     const jobsData = await getJobsData()
-
+    
     const usersData = await getUsersData()
 
     // Sanitize infoData
+    const sanitizedInfoData = sanitizeData(infoData)
 
     // Sanitize jobsData
+    const sanitizedJobsData = sanitizeData(jobsData)
 
     // Sanitize usersData
+    const sanitizedUsersData = sanitizeData(usersData)
 
-    // Merge usersData with jobsData
+    // Merge infoData with usersData
+    let mergedData = merge(sanitizedInfoData, sanitizedUsersData)
 
-    // Merge previous mergedData with infoData
+    // Merge jobsData with previous merged data
+    mergedData = merge(sanitizedJobsData, mergedData)
+
+    console.log({mergedData})
 
     // save output in file
 
