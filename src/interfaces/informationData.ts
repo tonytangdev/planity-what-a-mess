@@ -1,4 +1,5 @@
 export interface informationData {
     city?: string,
-    age?: number
+    age?: number,
+    job?: string
 }
