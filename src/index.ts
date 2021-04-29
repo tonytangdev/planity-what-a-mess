@@ -2,7 +2,6 @@
  * This project was tested on Node version 15.10.0
  */
 
-
 import fetch from 'node-fetch'
 import { merge } from 'lodash'
 import { informationData } from './interfaces/informationData'
@@ -10,6 +9,7 @@ import { jobData } from './interfaces/jobData.interface'
 import { response } from './interfaces/response.interface'
 import { userData } from './interfaces/userData.interface'
 import { sanitizeData } from './helpers/sanitizeData'
+import fs from 'fs'
 
 const INFO_URL = "https://recrutement-practice-default-rtdb.firebaseio.com/informations.json"
 
@@ -61,9 +61,12 @@ const start = async () => {
     // Merge jobsData with previous merged data
     mergedData = merge(sanitizedJobsData, mergedData)
 
-    console.log({mergedData})
-
     // save output in file
+    fs.writeFile('result.json', JSON.stringify(mergedData, null, 4), (err) => {
+        if (err) throw err
+
+        console.log('Done.')
+    })
 
 }
 
