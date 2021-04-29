@@ -1,4 +1,4 @@
-# Start project
+# About
 
 Install packages : `npm install`
 
