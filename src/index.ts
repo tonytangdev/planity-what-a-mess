@@ -1,3 +1,8 @@
+/**
+ * This project was tested on Node version 15.10.0
+ */
+
+
 import fetch from 'node-fetch'
 import { mergeWith, merge } from 'lodash'
 import { informationData } from './interfaces/informationData'
