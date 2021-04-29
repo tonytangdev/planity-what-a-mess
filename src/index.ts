@@ -56,10 +56,14 @@ const start = async () => {
     const sanitizedUsersData = sanitizeData(usersData)
 
     // Merge infoData with usersData
-    let mergedData = merge(sanitizedInfoData, sanitizedUsersData)
+    // Reason : I know users data only contains "names" and we want "names"
+    // from users data to always be picked over other tables.
+    // And info data contains "jobs" that we want to always be picked over other tables.
+    let mergedData = merge(sanitizedInfoData, sanitizedUsersData) // sanitizedUsersData data overrides sanitizedInfoData data if necessary
 
     // Merge jobsData with previous merged data
-    mergedData = merge(sanitizedJobsData, mergedData)
+    // Reason : merged data contains the data "names" and "jobs" that we want to keep
+    mergedData = merge(sanitizedJobsData, mergedData) // mergedData data overrides sanitizedJobsData data if necessary
 
     // save output in file
     fs.writeFile('result.json', JSON.stringify(mergedData, null, 4), (err) => {
