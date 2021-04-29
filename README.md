@@ -1,3 +1,11 @@
+# Start project
+
+Install packages : `npm install`
+
+Start app : `npm start`
+
+Run tests: `npm test`
+
 # RECRUTEMENT TEST 
 Each endpoint holds some data, but someone made a mistake and shuffled it.
 Thankfully, all users ids are still here ! 
