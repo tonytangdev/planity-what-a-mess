@@ -1,5 +1,6 @@
 /**
  * This project was tested on Node version 15.10.0
+ * and took me 4 hours to complete.
  */
 
 import fetch from 'node-fetch'
